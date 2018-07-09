@@ -17,7 +17,8 @@ function selectAllProducts() {
         Product-Name = ${results[i].product_name}  
         Department_Name = ${results[i].department_name} 
         Price = ${results[i].price}   
-        Inventory = ${results[i].stock_quantity} `)
+        Inventory = ${results[i].stock_quantity} 
+        `)
         }
         runInquirer();
     })
@@ -50,9 +51,9 @@ var runInquirer = function ()
         }
     ])
         .then(function (answer) {
-            var count = answer.count;
-            var id = answer.ID;
-            connection.query("SELECT stock_quantity,price FROM products WHERE item_id=?", [id], function (error, results, fields) {
+                var count = answer.count;
+                var id = answer.ID;
+                connection.query("SELECT stock_quantity,price FROM products WHERE item_id=?", [id], function (error, results, fields) {
                 var price=results[0].price;
                 if (count > results[0].stock_quantity)
                 {
@@ -60,16 +61,16 @@ var runInquirer = function ()
                 }
                 else
                 {
-                    var newQuantity = results[0].stock_quantity - count;
-                    connection.query("update products set stock_quantity=? where item_id=?", [newQuantity, id], function (error, results, fields) {
-                        if (error) throw error;
-                    })
+                var newQuantity = results[0].stock_quantity - Number(count);;
+                connection.query("update products set stock_quantity=? where item_id=?", [newQuantity, id], function (error, results, fields) {
+                if (error) throw error;
+                })
 
                 var totalPrice=price*count;
                 console.log("Total Proce = "+totalPrice);
                 
                 }
-                console.log("waiting until list all product ....")
+                console.log("waiting until list all product again....")
                 setTimeout(selectAllProducts,3000);
 
             })
