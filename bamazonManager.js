@@ -1,5 +1,8 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require('easy-table');
+var t = new Table;
+
 var connection = mysql.createConnection({
     host: "localhost",
     port: "3307",
@@ -20,14 +23,21 @@ var  viewProduct=function(){
 
     connection.query('select * from products', function (error, results, fields) {
         if (error) throw error;
-        for (var i = 0; i < results.length; i++) {
-            console.log(`Item-ID = ${results[i].item_id} 
-        Product-Name = ${results[i].product_name}  
-        Department_Name = ${results[i].department_name} 
-        Price = ${results[i].price}   
-        Inventory = ${results[i].stock_quantity} 
-        `)
-        }
+        
+
+        results.forEach(function (product) {
+            t.cell('Item-ID', product.item_id)
+            t.cell('Product-Name', product.product_name)
+            t.cell('Department_Name', product.department_name)
+            t.cell('Price', product.price)
+            t.cell('Inventory', product.stock_quantity)
+            t.newRow()
+        })
+
+        console.log(t.toString())
+
+
+
         runList();
     })
 }
@@ -38,9 +48,10 @@ var viewLowInventory=function(){
         for(var x=0;x<results.length;x++)
         {
            var count = results[x].stock_quantity
+           var ifLowExist=false;
         if (count <5)
         {
-
+           ifLowExist=true;
             console.log(`
             items with an inventory count lower than five :
             Item-ID = ${results[x].item_id} 
@@ -50,12 +61,18 @@ var viewLowInventory=function(){
             Inventory = ${results[x].stock_quantity} 
             `)
         }
-       
         
-    } 
+    }  
+     if(!ifLowExist)
+        {
+            console.log("................................")
+            console.log("There is no low inventory , All Products Inventory are > 5 ")
+            console.log("................................")
+        }
     runList();
     })
 }
+
 var selectId=function(id){
     connection.query("SELECT * FROM products WHERE item_id=?", [id], function (error, results, fields) {
         console.log(`
@@ -66,6 +83,8 @@ var selectId=function(id){
             Price = ${results[0].price}   
             Inventory = ${results[0].stock_quantity} 
             `)
+
+
           runList();    
     })
   
@@ -172,8 +191,8 @@ var addToInventory = function()
             })
     })
     console.log("\n you have successfuly increase the inventory for the item \n " )
-    selectId(id);
-    //runList();
+   selectId(id);
+    
     })
 }
 
