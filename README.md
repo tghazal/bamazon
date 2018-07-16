@@ -1,8 +1,7 @@
 # bamazon
 
 ## **Description**
-
-This application implements a simple command line based storefront Amazon-like using Node.js and MySQL. The application presents three interfaces: customer manager and Supervisor .
+Amazon-like storefront application using Node.js and MySQL. It application presents three interfaces: customer manager and Supervisor .
 
 
 ## **Bamazon Demo**
@@ -15,7 +14,7 @@ mysql, inquirer, easy-table
 
 
 ## **MySQL Database Setup**
-In order to run this application, you should have the MySQL database already set up on your machine. then you will need to create bamazon database and both products and departments table with the SQL code found in amazonShema.sql. Run this code inside your MySQL client then you will be ready to proceed with running the bamazon customer, manager and suoervisor interfaces.
+To run this application, you need to setup  MySQL database  on your machine. then you will need to create bamazon database and both products and departments table with the SQL code found in amazonShema.sql. Run this code inside your MySQL client then you will be ready to proceed with running the bamazon customer, manager and suoervisor interfaces.
 
 
 ## **Getting Started**
