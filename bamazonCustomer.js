@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var Table = require('easy-table');
-var t = new Table;
+
 
 var connection = mysql.createConnection({
     host: "localhost",
@@ -15,15 +15,8 @@ var connection = mysql.createConnection({
 function selectAllProducts() {
     connection.query('select * from products', function (error, results, fields) {
         if (error) throw error;
-        // for (var i = 0; i < results.length; i++) {
-        //     console.log(`Item-ID = ${results[i].item_id} 
-        // Product-Name = ${results[i].product_name}  
-        // Department_Name = ${results[i].department_name} 
-        // Price = ${results[i].price}   
-        // Inventory = ${results[i].stock_quantity} 
-        // `)
-        // }
-
+     
+        var t = new Table;
         results.forEach(function (product) {
             t.cell('Item-ID', product.item_id)
             t.cell('Product-Name', product.product_name)
