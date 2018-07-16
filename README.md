@@ -1,7 +1,7 @@
 # bamazon
 
 ## **Description**
-Amazon-like storefront application using Node.js and MySQL. It application presents three interfaces: customer manager and Supervisor .
+Amazon-like storefront application using Node.js and MySQL. It presents three interfaces: customer, manager and Supervisor .
 
 
 ## **Bamazon Demo**
