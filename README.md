@@ -14,6 +14,10 @@ You can  watch the demo of the Bamazon customer,manager, and supervisor interfac
 mysql, inquirer, easy-table
 
 
+## **MySQL Database Setup**
+In order to run this application, you should have the MySQL database already set up on your machine. then you will need to create bamazon database and both products and departments table with the SQL code found in amazonShema.sql. Run this code inside your MySQL client then you will be ready to proceed with running the bamazon customer, manager and suoervisor interfaces.
+
+
 ## **Getting Started**
 to run this app you will need to :
 * Clone repo.
@@ -23,7 +27,6 @@ to run this app you will need to :
     * Manager - 'node bamazonManager.js'
     * Supervisor - 'node bamazonSuoervisor.js'
 * Run 'ctrl + c' to exit each mode
-
 
 
 
