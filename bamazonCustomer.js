@@ -22,7 +22,6 @@ function selectAllProducts() {
             t.cell('Product-Name', product.product_name)
             t.cell('Department_Name', product.department_name)
             t.cell('Price', product.price)
-            t.cell('Inventory', product.stock_quantity)
             t.newRow()
         })
 
@@ -85,11 +84,10 @@ var runInquirer = function ()
                  })
              
                 console.log("Total Price = "+totalPrice);
-                console.log("old"+oldProductSale);
-                console.log("new"+newProductSale)
+                
                 }
                 console.log("waiting until list all product again....")
-                setTimeout(selectAllProducts,3000);
+                setTimeout(selectAllProducts,6000);
 
             })
         

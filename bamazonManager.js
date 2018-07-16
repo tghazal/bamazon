@@ -45,10 +45,11 @@ var  viewProduct=function(){
 var viewLowInventory=function(){
 
     connection.query("SELECT * FROM products ", function (error, results, fields) {
+         var ifLowExist=false;
         for(var x=0;x<results.length;x++)
         {
            var count = results[x].stock_quantity
-           var ifLowExist=false;
+          
         if (count <5)
         {
            ifLowExist=true;
@@ -190,8 +191,9 @@ var addToInventory = function()
             if (error) throw error;
             })
     })
-    console.log("\n you have successfuly increase the inventory for the item \n " )
-   selectId(id);
+    console.log("\n you have successfuly increase the inventory for the item \n " );
+    runList();
+   //selectId(id);
     
     })
 }
