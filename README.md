@@ -8,7 +8,7 @@ This application implements a simple command line based storefront Amazon-like u
 ## **Bamazon Demo**
 You can  watch the demo of the Bamazon customer,manager, and supervisor interfaces at the link below. 
 
-[Demo](https://drive.google.com/file/d/1DvVVAxkm9J55lnXz6ph0w35bYYc8Gx1S/view)
+`<addr>` [Demo](https://drive.google.com/file/d/1DvVVAxkm9J55lnXz6ph0w35bYYc8Gx1S/view)
 
 
 ## **NPM Packages used :**
